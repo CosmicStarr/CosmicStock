@@ -1,0 +1,84 @@
+<div class="outter-Order-Container">
+    <ng-container *ngIf="allOrders.length == 0">
+        <div class="Empty-Order-Container">
+            <p>looks like you haven't ordered anything in awhile!</p>
+            <div class="img-Container">
+                <img src="../assets/Images/pngtree.png" alt="">
+            </div>
+            <a routerLink=""> &larr; Go Shopping?</a>
+        </div>
+    </ng-container>
+    <div class="orders-Container" *ngFor="let item of allOrders; let i = index;">
+        <div *ngIf="i + 1 === allOrders?.length" #lastOnTheList>
+            <div class="orders-Container-information" >
+                <div class="orderNumber onehundred">
+                    <h4 class="padding-top-plus">Order NO:</h4>
+                    <p class="padding-bottom-plus">{{item.id}}</p>
+                </div>
+                <div class="shippedDate onehundred">
+                    <h4 class="padding-top-plus">Shipped Date:</h4>
+                    <p class="padding-bottom-plus">{{item.orderDate|date}}</p>
+                </div>
+                <div class="status onehundred">
+                    <h4 class="padding-top-plus">Status:</h4>
+                    <p class="padding-bottom-plus">Awaiting Delivery</p>
+                </div>
+                <div class="orderAmount onehundred">
+                    <h4 class="padding-top-plus">Order Amount:</h4>
+                    <p class="padding-bottom-plus">{{item.subtotal|currency}}</p>
+                </div>
+            </div>
+            <div class="more-Order-info">
+                <div class="orderImgsPlus">
+                    <ng-container *ngFor="let pics of item.orderedProducts">
+                        <img src="{{pics.imageUrl}}" alt="">
+                    </ng-container>
+                </div>
+                <div class="orderCount">
+                    <p>Total:</p>
+                    <p>{{item.orderedProducts.length}}</p>
+                </div>
+                <div class="order-buttons">
+                    <a class="order-details-button" routerLink="/profile/order-details/{{item.id}}">Order Details</a>
+                    <a class="back-button" routerLink="">Back</a>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="i + 1 != allOrders?.length">
+            <div class="orders-Container-information" >
+                <div class="orderNumber onehundred">
+                    <h4 class="padding-top-plus">Order NO:</h4>
+                    <p class="padding-bottom-plus">{{item.id}}</p>
+                </div>
+                <div class="shippedDate onehundred">
+                    <h4 class="padding-top-plus">Shipped Date:</h4>
+                    <p class="padding-bottom-plus">{{item.orderDate|date}}</p>
+                </div>
+                <div class="status onehundred">
+                    <h4 class="padding-top-plus">Status:</h4>
+                    <p class="padding-bottom-plus">Awaiting Delivery</p>
+                </div>
+                <div class="orderAmount onehundred">
+                    <h4 class="padding-top-plus">Order Amount:</h4>
+                    <p class="padding-bottom-plus">{{item.subtotal|currency}}</p>
+                </div>
+            </div>
+            <div class="more-Order-info">
+                <div class="orderImgsPlus">
+                    <ng-container *ngFor="let pics of item.orderedProducts">
+                        <img src="{{pics.imageUrl}}" alt="">
+                    </ng-container>
+                </div>
+                <div class="orderCount">
+                    <p>Total:</p>
+                    <p>{{item.orderedProducts.length}}</p>
+                </div>
+                <div class="order-buttons">
+                    <a class="order-details-button" routerLink="/profile/order-details/{{item.id}}">Order Details</a>
+                    <a class="back-button" routerLink="">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

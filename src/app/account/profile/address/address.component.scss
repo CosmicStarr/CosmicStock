@@ -1,0 +1,146 @@
+.actual-Address-Container{
+    gap: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.shipping-Address-container-plus{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.shpping-address{
+    width: 45%;
+    background-color: #a7a6a64d;
+    padding: 1.5rem;
+}
+.shpping-address p{
+    color: #664b4b;
+    line-height: 1.8rem;
+    font-size: 1.1rem;
+    text-shadow: .1rem .1rem .2rem rgb(0, 0, 0,0.3);
+}
+.shipping-title{
+    margin-bottom: .5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.shipping-title h2{
+    font-size: 1.5rem;
+}
+.icons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem;
+}
+.icons i{
+    border-radius: 55px;
+    background-color: rgb(248, 248, 130);
+    padding: .5rem;
+    font-size: 1rem;
+}
+.icons i:hover{
+    color: white;
+    background-color: darkred;
+}
+.home-address{
+    width: 45%;
+    background-color: #a7a6a64d;
+    padding: 1.5rem;
+}
+.home-address p{
+    color: #664b4b;
+    line-height: 1.8rem;
+    font-size: 1.1rem;
+    text-shadow: .1rem .1rem .2rem rgb(0, 0, 0,0.3);
+}
+.home-title{
+    margin-bottom: .5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.home-title h2{
+    font-size: 1.5rem;
+}
+.add-new-address{
+    width: 100%;
+    text-align: center;
+}
+.add-new-address a{
+    border-top: 1px solid rgb(0, 0, 0,0.1);
+    border-bottom: 1px solid rgb(0, 0, 0,0.1);
+    display: block;
+    background-color: #a7a6a64d;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+.add-new-address a:hover{
+    color: blue;
+}
+.add-new-address i{
+    border-radius: 50px;
+    padding: .5rem;
+    font-size: .9rem;
+    background-color: rgb(248, 248, 130);
+}
+@media screen and (max-width:58em){
+    .shipping-title h2{
+        font-size: 1.2rem;
+    }
+    .home-title h2{
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width:26em){
+    .actual-Address-Container p{
+        font-size: .8rem;
+        font-weight: 600;
+    }
+    .address-container{
+        width: 100%;
+    }
+    .shipping-Address-container-plus{
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: space-around;
+    }
+    .shpping-address{
+        width: 70%;
+        padding: .5rem;
+    }
+    .home-address{
+        width: 70%;
+        padding: .5rem;
+    }
+    .shipping-title{
+        gap: .5rem;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .shipping-title h2{
+        font-size: 1.3rem;
+    }
+    .icons{
+       width: 100%;
+    }
+    .home-title{
+        gap: .5rem;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .home-title h2{
+        font-size: 1.3rem;
+    }
+    .icons i{
+        font-size: .9rem;
+    }
+}

@@ -1,0 +1,34 @@
+<div class="outter-container">
+    <div class="personal-Info-container" >
+        <div class="change-title-container">
+            <h5>Change Password</h5>
+            <p>Choose a unique password to protect your account!</p>
+        </div>
+        <form class="register-form" [formGroup]="userInfoForm" (ngSubmit)="onSubmit()" autocomplete="off" >
+            <div class="form-Information">
+                <div class="form-group-confirm">
+                    <input formControlName="currentPassword" type="password" name="currentPassword" placeholder="Current Password">
+                    <span class="valid" *ngIf="userInfoForm.get('currentPassword')?.errors && userInfoForm.get('currentPassword')?.touched">A Password is required!</span>
+                </div>
+            </div>
+            <div class="form-Information">
+                <div class="form-group-confirm">
+                    <input formControlName="newPassword" type="password" name="newPassword" placeholder="New Password">
+                    <span class="valid" *ngIf="userInfoForm.get('newPassword')?.errors && userInfoForm.get('newPassword')?.touched">A New Password is required!</span>	  
+                </div>
+            </div>
+            <div class="form-Information">
+                <div class="form-group-confirm">
+                    <input formControlName="retypenewPassword" type="password" name="retypenewPassword" placeholder="Retype New Password">
+                    <span class="valid" *ngIf="userInfoForm.hasError('notSame')">Passwords do not match</span>
+                    <div class="valid" *ngIf="userInfoForm.get('retypenewPassword')?.touched"><span class="valid" *ngIf="userInfoForm.get('retypenewPassword')?.errors && userInfoForm.get('retypenewPassword')?.touched"> Retype Password is required</span></div> 	
+                    <span class="spanInfo">Use a minimum of 8 characters.</span>  
+                </div>
+            </div>
+            <div class="button-Info">
+                <button type="submit">Change Password</button>
+            </div> 
+        </form> 
+    </div>
+</div>
+

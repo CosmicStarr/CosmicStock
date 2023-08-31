@@ -1,0 +1,43 @@
+<div class="flexContainer">
+    <ng-container *ngIf="wishlist.length == 0">
+        <div class="Empty-Order-Container">
+            <p>looks like you haven't wished for anything!</p>
+            <div class="img-wish-Container">
+                <img src="../assets/Images/EmptyWishList.png" alt="">
+            </div>
+            <a routerLink=""> &larr; Go Shopping?</a>
+        </div>
+    </ng-container>
+    <ng-container >
+        <div class="Products-Container">
+            <div class="" *ngFor="let item of wishlist; let i = index;">
+                <div class="products" *ngIf="i + 1 === wishlist?.length" #lastOnTheWishList>
+                    <div class="img-container">
+                        <img src="{{item?.imageUrl}}" alt="">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-Title">{{item.name}}</p>
+                    </div>
+                    <p class="price">{{item.price|currency}}</p>
+                    <div class="product-Cart-and-Price">
+                        <input type="button" value="Remove" (click)="deleteWishedItem(item.id)">
+                    </div>
+                </div>
+                <div class="products" *ngIf="i + 1 != wishlist?.length" #lastOnTheWishList>
+                    <div class="img-container">
+                        <img src="{{item?.imageUrl}}" alt="">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-Title">{{item.name}}</p>
+                    </div>
+                    <p class="price">{{item.price|currency}}</p>
+                    <div class="product-Cart-and-Price">
+                        <input type="button" value="Remove" (click)="deleteWishedItem(item.id)">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>
+
+

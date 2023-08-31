@@ -1,0 +1,186 @@
+.imgDiv{
+    width: 100%;
+    height: 100%;
+    padding: .5px;
+}
+.videoDiv{
+    width: 100%;
+    height: 100%;
+    padding: .5px;
+}
+.videoDiv source{
+    width: 100%;
+    height: 100%;
+    padding: .5px;
+}
+.ModalHeader{
+    padding-bottom: 1rem;
+    border-bottom: .5px solid rgb(0, 0, 255, .5);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.PostClose{
+    text-align: center;
+}
+.PostClose i{
+    width: 100%;
+}
+.ModalInformation{
+    gap: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.inputOutterContainer{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.Picture-Container{
+    width: 50%;
+}
+.booleanInputs{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.detailsContainer{
+    gap: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+.detailsForm{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+.display{
+    display: flex;
+    text-align: center;
+    width: 33%;
+    justify-content: space-between;
+}
+.inputContainer{
+    width: 100%;
+}
+.inputContainer input{
+    border: 1px solid rgb(0, 0, 0,0.2);
+    width: 100%;
+    padding: .5rem;
+}
+.SelectList{
+    display: flex;
+    width: 100%;
+}
+.categorySelectList{
+    width: 50%;
+}
+.categorySelectList select{
+    width: 100%;
+}
+.brandSelectList{
+    width: 50%;
+}
+.brandSelectList select{
+    width: 100%;
+}
+.img-Container{
+    border-radius: 5px;
+    position: relative;
+    background-size: cover;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+.post-img2{
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    margin-top: 0.4rem;
+}
+.post-img3{
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+}
+.Overflow-Container{
+    overflow-y: scroll;
+    width: 100%;
+    display: flex;
+    line-height: 3rem;
+    gap: 1rem;
+}
+.PostaPicContainer{
+    max-width: 75rem;
+    margin: 4rem auto 0rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+.post-Button{
+    cursor: pointer;
+    background-color: rgba(255, 255, 0, 0.808);
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    padding: .5rem;
+}
+.post-Button:hover{
+    background-color: rgb(255, 255, 0);
+}
+.img-Container p{
+    cursor: pointer;
+    position: absolute;
+    top: 160px;
+    right: 0px;
+    bottom: 0;
+    left: 165px;
+    width: 29%;
+    height: 10%;
+    text-align: center;
+}
+.MorePics{
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    bottom: 0;
+    left: 7px;
+    width: 48%;
+    height: 7%;
+    text-align: center;
+    background-color: orange;
+    padding: .5rem;
+    border-radius: 5px;
+    vertical-align: middle;
+    // font-size: .8rem;
+}
+.MorePics:hover{
+    background-color: rgb(250, 181, 52);
+    color: wheat;
+}
+.Drop-HoldingContainer{
+    width: 50%;
+}
+.DropContainer{
+    padding: .5rem;
+    width: 100%;
+    height: 50vh;
+    border-radius: 5px;
+    border: 1px solid rgb(0, 0, 0, .5);
+}
+.lightYellow{
+    background-color: rgb(252, 252, 112);
+    color: aliceblue;
+}
+.open{
+    display: none;
+}
+.DropContainerPic{
+    display: none;
+}

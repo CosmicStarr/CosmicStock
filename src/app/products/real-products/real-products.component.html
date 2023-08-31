@@ -1,0 +1,23 @@
+
+<div class="loadingContainer">
+    <img class="loading" *ngIf="Loading" src="../assets/Images/loading1.gif" alt="">
+</div>
+<div class="Products-Container">
+    <div class="products" *ngFor="let item of products">
+        <ng-container *ngFor="let pic of item.imageUrl"  >
+            <div class="img-container" *ngIf="pic.isMain == true">
+                <img routerLink="/products/details/{{item.id}}" src="{{pic.photoUrl}}" alt="">
+            </div>
+        </ng-container>
+        <div class="product-info">
+            <p class="product-Title">{{item.name}}</p>
+            <div class="product-Cat">
+                <span class="CatTitle greenish"></span>
+            </div>
+        </div>
+        <p class="price">{{item.price | currency}}</p>
+        <div class="product-Cart-and-Price">
+            <input routerLink="/products/details/{{item.id}}" type="button" value="Details">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="starRating">
+    <i 
+    *ngFor="let item of maxStarrsArray;let i = index" 
+    [ngClass]="{checked:selectedRating > i}"  
+    (mouseenter)="handleMouseEnter(i)" 
+    (mouseleave)="handleMouseLeave()" 
+    (click)="actualRating(i)"
+    class="fa fa-star"></i>
+</div>

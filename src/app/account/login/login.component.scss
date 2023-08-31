@@ -1,0 +1,133 @@
+.LoginContainer{
+    overflow: hidden;
+    background-color: #a7a6a64d;
+    height: 100vh;
+    width: 100vw;
+
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    border: none;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.nav-open{
+    pointer-events: auto;
+    display: block;
+}
+.close{
+    display: none;
+}
+.actual-Container{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    max-width: 71.3rem;
+    height: 100vh;
+    width: 100vw;
+}
+.register-form{
+    width: 400px;
+    margin: auto;
+    padding: 1rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .8rem;
+    background-color: aquamarine;
+    box-shadow: 2px 2px 9px 2px rgba(0, 0, 0, 0.301);
+}
+.form-group{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+.form-group input{
+    width: 100%;
+    padding: 1rem;
+    border-radius: 5px;
+    border: none;
+}
+.LoginButton{
+    cursor: pointer;
+    color: antiquewhite;
+    border: none;
+    background-color: blue;
+    padding: .8rem;
+    width: 100%;
+    border-radius: 5px;
+}
+.LoginButton:hover{
+    background-color: rgba(0, 0, 255, 0.788);
+}
+.Fpassword{
+    padding: .5rem;
+    font-size: 12px;
+}
+.Hline{
+   width: 100%;
+}
+.RegisterButton{
+    color: antiquewhite;
+    border: none;
+    background-color: green;
+    padding: .8rem;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.greyColor{
+    background-color: rgba(3, 1, 20, 0.63);
+    color: rgb(255, 255, 254);
+}
+.Register-Button-Container{
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    width: 100%;
+}
+.valid{
+    color: #8b0000;
+}
+
+@media screen and (max-width:58em) {
+    .LoginTop{
+       flex-direction: column;
+    }
+    .LeftSide{
+        display: none;
+    }
+    .RightSide{
+        margin: auto;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        width: 100%;
+    }
+    .register-form{
+        width: 335px;
+    }
+
+}
+@media screen and (max-width:41em){
+    .modal{
+       overflow: auto;
+    }
+    .actual-Container{
+        overflow: auto;
+    }
+}
+@media screen and (max-width:40.5em){
+    .modal{
+       overflow: hidden;
+    }
+    .actual-Container{
+        overflow: hidden;
+    }
+}

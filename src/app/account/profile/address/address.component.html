@@ -1,0 +1,42 @@
+<div class="address-container">
+    <div class="actual-Address-Container">
+        <p *ngIf="address.length == 0">You currently dont have an address on file!</p>
+        <div class="shipping-Address-container-plus" *ngIf="address">
+            <ng-container *ngFor="let item of address" >
+                <div class="shpping-address" *ngIf="item?.addressType == 'shipping' && address">
+                    <div class="shipping-title">
+                        <h2>Shipping-Address</h2>
+                        <div class="icons">
+                            <i class="editAddress fa fa-edit" routerLink="/profile/address-details/{{item.id}}"></i>
+                            <i class="fa fa-close" (click)="removeAnAddress(item.id)"></i>
+                        </div>
+                    </div>
+                    <p>{{item.firstName}} {{item.lastName}}</p>
+                    <p>{{item.addressLine1}}</p>
+                    <p>{{item.addressLine2}}</p>
+                    <p>{{item.city}}, {{item.state}}</p>
+                    <p>{{item.zipCode}}</p>
+                    <p>{{item.phoneNumber}}</p>
+                </div>
+                <div class="home-address" *ngIf="item?.addressType == 'billing' && address">
+                    <div class="home-title">
+                        <h2>Billing-Address</h2>
+                        <div class="icons">
+                            <i class="fa fa-edit" routerLink="/profile/address-details/{{item.id}}"></i>
+                            <i class="fa fa-close" (click)="removeAnAddress(item.id)"></i>
+                        </div>
+                    </div>
+                    <p>{{item.firstName}} {{item.lastName}}</p>
+                    <p>{{item.addressLine1}}</p>
+                    <p>{{item.addressLine2}}</p>
+                    <p>{{item.city}}, {{item.state}}</p>
+                    <p>{{item.zipCode}}</p>
+                    <p>{{item.phoneNumber}}</p>
+                </div>
+            </ng-container>
+        </div>
+        <div class="add-new-address">
+            <a (click)="addAnAddress()">Add Address <i class="fa fa-plus"></i></a>
+        </div>
+    </div>
+</div>

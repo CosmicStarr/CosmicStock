@@ -1,0 +1,179 @@
+<app-nav></app-nav>
+<section class="product-details-container" *ngIf="products">
+    <div class="card">
+        <!-- left side of the card -->
+        <div class="product-imgs">
+            <div class="img-showcase">
+                <ngx-gallery 
+                [options]="galleryOptions" 
+                [images]="galleryImages"
+                class="ngx-gallery"></ngx-gallery>
+            </div> 
+        </div>
+        <!-- right side of the card -->
+        <div class="product-content">
+            <h2 class="product-title">{{products.name}}</h2>
+          <div class="Rating-Plus">
+            <div class="breadCrumb">CosmicStock > Details</div>
+            <div class="product-rating">
+                <app-starr-rating (onRating)="onRatingEvent($event)"></app-starr-rating> 
+                <span *ngIf="products.totalRate >= 20"> {{rateAmount}} out of 5  (20+)</span>
+                <span *ngIf="products.totalRate != 20"> {{rateAmount}} out of 5 ({{products.totalRate}})</span>
+            </div>
+          </div>
+            <div class="product-details">
+                <!-- <h3>Description:</h3> -->
+                <p>{{products.description}}</p>
+                <ul class="isAvailable-Info-Plus">
+                    <ng-container *ngIf="products.isAvailable">
+                        <li class="available">
+                            Available:
+                            <span class="true"> Yes!</span>
+                        </li>
+                    </ng-container>
+                    <ng-container *ngIf="products.isAvailable == false">
+                        <li class="available">
+                            Available:
+                            <span class="false"> Coming Soon!</span>
+                        </li>
+                    </ng-container>
+                    <li class="category">
+                        Category:
+                        <span>{{products.category}} </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="product-price">
+                <div class="Msrp product-Plus">
+                    <p class="new-price">M.S.R.P</p> 
+                    <s>{{products.msrp | currency}}</s>
+                </div>
+                <div class="product-Plus">
+                    <p class="new-price">Price</p> 
+                    <p class="price"> {{products.price | currency}}</p>
+                </div>
+                <div class="shipping product-Plus">
+                    <p class="new-price">Shipping</p> 
+                    <span>$ 7.99</span>
+                </div>
+                <div class="save product-Plus">
+                    <p class="new-price">What you save!</p> 
+                    <span>{{products.savings | currency}}</span>
+                </div>
+            </div>
+            <div class="button-Info">
+                <button (click)="AddItemToShoppingCart()" type="button" class="btn2">Add to Cart <i class="fa fa-shopping-cart"></i></button>
+                <button (click)="AddToWishlist()" type="button" class="btn3">Add to Wishlist <i class="fa fa-heart"></i></button>
+            </div>
+        </div>
+    </div>
+    <h2 class="product-title">Product Details</h2>
+    <div class="product-details-list">
+        <ul class="details-List">
+            <li>
+                <p>{{products.details.actualDetails}}</p>
+            </li>
+            <li>
+                <p>{{products.details.actualDetails1}}</p>
+            </li>
+            <li>
+                <p>{{products.details.actualDetails2}}</p>
+            </li>
+            <li>
+                <p>{{products.details.actualDetails3}}</p>
+            </li>
+            <li>
+                <p>{{products.details.actualDetails4}}</p>
+            </li>
+        </ul>
+        <ul class="details-List">
+            <li>
+                <p>{{products.details.actualDetails5}}</p>
+            </li>
+            <li>
+                <p>{{products.details.actualDetails6}}</p>
+            </li>
+            <li>
+                <p>{{products.details.actualDetails7}}</p>
+            </li>
+            <li>
+                <p>{{products.details.actualDetails8}}</p>
+            </li>
+            <li>
+                <p>{{products.details.actualDetails9}}</p>
+            </li>
+        </ul>
+         <!-- <div class="social-links">
+             <p class="mt-3">Share at:</p>
+             <a><i class="fa fa-facebook"></i></a>
+             <a><i class="fa fa-instagram"></i></a>
+             <a><i class="fa fa-whatsapp"></i></a>
+         </div> -->
+    </div>
+</section>
+<div class="shopping-Cart-Show" [ngClass]="{'shopping-Cart-Show-menu': showMenu}">
+    <div class="close-button-and-Cart">
+        <div class="Cart-button" routerLink="/shopping-cart/cart">
+            <i class="fa fa-shopping-cart"></i>
+            <p>Cart</p>
+        </div>
+        <div (click)="toggleMenuClose()" class="Close-button-cart">
+            <i class="xclose fa fa-close"></i>
+        </div>
+    </div>
+    <div class="shopping-Title">
+        <p>Shopping-Cart</p>
+    </div>
+    <ng-container *ngIf="(ShoppingCart$ | async) === null">
+        <div class="Empty-Cart-Container">
+            <img src="../assets/Images/EmptyCart3.png" alt="">
+            <p>Oh no! It looks like your shopping cart is empty!</p>
+            <button class="continue-Button" (click)="toggleMenuClose()">&larr; Continue Shopping</button>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="(ShoppingCart$ | async) as cart">
+        <div  class="actual-Shopping-Cart-Info-Container">
+            <div class="actual-Shopping-Cart-Info">
+                <ng-container *ngFor="let item of cart.shoppingCartItems">
+                    <ng-container *ngFor="let pics of item?.imageUrl">
+                        <div class="img-Container-Plus" *ngIf="pics.isMain == true" >
+                            <img  src="{{pics.photoUrl}}" alt="">
+                            <div class="product-Info-Container">
+                                <div class="product-Info">
+                                    <div class="product-options">
+                                        <h4>{{item.name}}</h4>
+                                    </div>
+                                    <div class="product-Qty">
+                                        <h4>{{item.price|currency}}</h4>
+                                    </div>
+                                </div>
+                                <div class="price-Info-plus">
+                                    <p> X {{item.amount}}</p>
+                                    <div class="just-Space"></div>
+                                    <button (click)="removeItem(item)" class="product-Info-margin remove-Button">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </div>
+            <section class="orderSum-container" *ngIf="(OrderService$ | async) as total">
+                <div class="actual-order-container">
+                    <div class="shopping-Cart-Total-Information">
+                        <p class="sub-total">Sub-Total</p>
+                        <p class="total-order">{{total.subTotal|currency}}</p>
+                    </div>
+                </div>
+                <div class="order-button">
+                    <button class="checkOut-Button oneHundredPercent size-Button"(click)="createPaymentIntent()">Proceed to Checkout</button>
+                    <button class="continue-Button oneHundredPercent size-Button" (click)="toggleMenuClose()">&larr; Continue Shopping</button>
+                </div>
+            </section>
+        </div>
+    </ng-container>
+</div>  
+<div [ngClass]="{'blackscreen': showMenu}">
+</div> 
+<div class="footer">
+    <app-footer></app-footer>
+</div>

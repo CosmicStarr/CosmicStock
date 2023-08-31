@@ -1,0 +1,29 @@
+<div class="change-email-container"*ngIf="(currentUser$|async) as User">
+    <div class="actual-Email-Container" *ngIf="!User.emailConfirmed">
+        <div class="centerEverything">
+            <div class="emailConfirmed-pic-container">
+                <img src="../assets/Images/SomethingWentWrong.png" alt="Email confirm picture">
+            </div>
+            <h4>Current email not confirmed!</h4>
+            <div class="message-Container">
+                <p class="change-margin">Your email is not confirmed! If you wish to change your email, check the email associated with this account for instruction to verify your current email</p>
+                <p class="change-margin">If you did not receive a link, click on the link below to send another one.</p>
+            </div>
+            <button class="change-margin button-Info" >Confirm Email Link</button>
+        </div>
+    </div>
+    <div class="actual-Email-Container" *ngIf="User.emailConfirmed">
+        <div class="centerEverything">
+            <h4>Change Email</h4>
+            <p class="change-margin">Change the email you use to log in and receive information.</p>
+        </div>
+        <div class="centerEverything">
+            <p>Current Email</p>
+            <h5>{{User.email}}</h5>
+        </div>
+        <div class="centerEverything">
+            <p>Click on the button below to send instruction on how to change your current email</p>
+            <button class="change-margin button-Info" (click)="onSubmit()">Send Change Email Link</button>
+        </div>
+    </div>
+</div>

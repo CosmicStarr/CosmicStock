@@ -1,0 +1,32 @@
+<div class="orders-details-container" *ngFor="let item of ordereditems">
+    <div class="top">
+        <div class="order-Number-Container onehundred">
+            <p class="heading padding-top-plus">ORDER NO:</p>
+            <p class="actual-Info padding-top-plus">{{item.id}}</p>
+        </div>
+        <div class="shipping-Date-Container onehundred">
+            <p class="heading padding-top-plus">SHIPPING DATE</p>
+            <p class="actual-Info padding-top-plus">5/23/2023</p>
+        </div>
+        <div class="status-Container onehundred">
+            <p class="heading padding-top-plus">STATUS:</p>
+            <div class="actual-Info padding-top-plus">Awaiting Delivery</div>
+        </div>
+        <div class="ordered-Amount-Container onehundred">
+            <p class="heading padding-top-plus">ORDER AMOUNT:</p>
+            <div class="actual-Info padding-top-plus">{{item.trueTotal|currency}}</div>
+        </div>
+    </div>
+    <h1 class="items-Ordered-Title">Items Ordered({{item.orderedProducts.length}})</h1>
+    <div class="orderedItemsContainer">
+        <ng-container *ngFor="let items of item.orderedProducts">
+            <div class="actual-Item-Ordered">
+                <img  src="{{items.imageUrl}}" alt="">
+                <div class="item-details">
+                    <p class="product-Title">{{items.name}} x {{items.amount}}</p>
+                    <p>{{items.price|currency}}</p>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>

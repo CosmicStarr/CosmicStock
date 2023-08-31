@@ -1,0 +1,73 @@
+<nav class="navBar-Container maxWidth">
+    <div class="logo-Container">
+        <img routerLink="" src="../assets/Images/CosmicStock Logo - Original - 5000x5000 (2).png" alt="">
+    </div>
+    <div class="nav-SearchBar">
+        <div class=""></div>
+        <!-- <input type="search" placeholder="Search">
+        <i class="fa fa-search"></i> -->
+    </div>
+    <div class="user-Options">
+        <ng-container *ngIf="(currentUser$|async) as User">
+            <div class="accountInfo" *ngIf="User.role[0] != 'Admin'">
+                <i class="fa fa-user"></i>
+                <a  routerLink="/account/profile">
+                    <ng-container >
+                        <p>Welcome {{User.email}}!</p>
+                    </ng-container>
+                </a>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="(currentUser$|async) as User">
+            <div class="accountInfo" *ngIf="User.role[0] == 'Admin'">
+                <i class="fa fa-user"></i>
+                <a class="userEmail" routerLink="/admin/home">
+                    <ng-container >
+                        <p>Welcome {{User.email}}!</p>
+                    </ng-container>
+                </a>
+            </div>
+        </ng-container>
+        <div class="accountInfo" *ngIf="!(currentUser$|async) as User" >
+            <i class="fa fa-user"></i>
+            <a class="userEmail" routerLink="/account/login"><p>Login</p></a>
+        </div>
+        <ng-container *ngIf="(shoppingCart$|async) as Cart" >
+            <div class="shoppingCartInfo" *ngIf="Cart.shoppingCartItems.length > 0">
+                <i class="fa fa-shopping-cart"></i>
+                <a routerLink="/shopping-cart/cart">
+                    <p>Cart</p>
+                </a> 
+            </div>
+        </ng-container>
+    </div>
+    <div class="moblie-nav">
+        <button (click)="toggleMenu()"  class="logo-Container-m">
+            <i *ngIf="!showMenu" class="fa fa-bars"></i>
+            <i *ngIf="showMenu" class="fa fa-close faClose"></i>
+        </button>
+    </div>
+    <div class="moblie-navi-overlay" [ngClass]="{'nav-open': showMenu}">
+        <div class="dropdownMenu-Container">
+            <ng-container *ngIf="(currentUser$|async)" >
+                <p class="underline"> <a routerLink="/account/profile">Account</a></p>
+            </ng-container>          
+            <ng-container  *ngIf="(shoppingCart$|async) as Cart">
+                <p class="underline" routerLink="/shopping-cart/cart"><a>Cart </a> <i class="fa fa-shopping-cart"></i></p> 
+            </ng-container>          
+            <p class="underline"><a routerLink="">About</a> </p>
+            <p class="underline"><a routerLink="">Privacy & Terms</a></p>
+            <ng-container *ngIf="!(currentUser$|async)">
+                <p class="pad"> <a routerLink="/account/login">Login</a></p>
+            </ng-container>
+            <ng-container *ngIf="(currentUser$|async)">
+                <p class="pad"> 
+                    <a (click)="logout()">Log out</a>
+                </p>
+            </ng-container>
+
+        </div>
+    </div>
+</nav>
+
+

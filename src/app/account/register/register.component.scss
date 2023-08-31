@@ -1,0 +1,135 @@
+.section-form{
+    max-width: 95rem;
+    margin: auto;
+    height: 50vh; 
+}
+.form{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.form-text-box{
+    gap: 1rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.form-img-box{
+    width: 50%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(to right bottom, rgba(255, 69, 0, 0.30), rgba(255, 69, 0, 0.30)), url('../../../assets/Images/potsandpans.png');
+}
+.form-heading{
+    font-size: 2.5rem;
+}
+.actual-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+.input-Container{
+    width: 100%;
+}
+.actual-form input{
+    padding: .5rem;
+    width: 100%;
+    border-radius: 10px;
+    border: .5px solid #424242;
+}
+.btn{
+    color: whitesmoke;
+    border: none;
+    background-color: rgb(255, 69, 0);
+    padding: .8rem;
+    width: 22rem;
+    border-radius: 5px;
+    box-shadow:.1rem .1rem .3rem rgb(0, 0,0) ;
+    text-shadow: .1rem .1rem .3rem rgb(17, 17, 17);
+    width: 100%;
+}
+@media screen and (max-width:60em){
+    .form{
+        width: 100%;
+    }
+    .section-form{
+        width: 100vw;
+        height: 33vh; 
+    }
+    .form-heading{
+        font-size: 1.3rem;
+    }
+}
+@media screen and (max-width:58em){
+    .section-form{
+        height: 73vh; 
+    }
+}
+@media screen and (max-width:51em){
+    .section-form{
+        height: 33vh; 
+    }
+}
+@media screen and (max-width:47em){ 
+    .section-form{
+        height: 73vh; 
+    }
+    .form{
+        width: 100%;
+    }
+    .form-text-box{
+        padding: .5rem;
+    }
+    .form-text{
+        font-size: 1rem;
+    }
+    .input-Container{
+        padding: .2rem;
+    }
+    .input-Container input{
+        padding: .4rem;
+        width: 100%;
+    }
+    .actual-form{
+        gap: .5rem;
+        text-align: center;
+    }
+    .btn{
+        padding: .5rem;
+    }
+}
+@media screen and (max-width:44em){
+    .section-form{
+        height: 80vh; 
+    }
+}
+@media screen and (max-width:40em){
+    .section-form{
+        height: 73vh; 
+    }
+}
+@media screen and (max-width:26em){
+    .section-form{
+        height: 36vh; 
+    }
+    .form-heading{
+        font-size: 1.2rem;
+    }
+}
+@media screen and (max-width:22em) {
+    .form{
+        flex-direction: column;
+    }
+    .form-text-box{
+        width: 100%;
+        padding: 1rem;
+    }
+
+}

@@ -1,0 +1,76 @@
+.change-email-container{
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+}
+.change-margin{
+    margin-top: 1.5rem;
+}
+.actual-Email-Container{
+    margin: auto;
+    width: 50%;
+    height: 310px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.centerEverything{
+    text-align: center;
+}
+.actual-Email-Container h4{
+    font-size: 1.5rem;
+}
+.actual-Email-Container h5{
+    font-size: 1.2rem;
+}
+.actual-Email-Container p{
+    font-size: .8rem;
+    font-weight: 600;
+}
+.button-Info{
+    color: antiquewhite;
+    border: none;
+    background-color: green;
+    padding: .8rem;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.button-Info:hover{
+    background-color: lightgreen;
+    color: green;
+}
+
+.emailConfirmed-pic-container{
+    margin: auto;
+    width: 50%;
+}
+.emailConfirmed-pic-container img{
+    width: 100%;
+}
+.message-Container{
+    text-align: left;
+}
+@media screen and (max-width:54em){
+    .emailConfirmed-pic-container{
+        width: 20%;
+    }
+}
+@media screen and (max-width:34em){
+    .actual-Email-Container{
+        width: 85%;
+    }
+    .actual-Email-Container h4{
+        font-size: 1.2rem;
+    }
+    .actual-Email-Container h5{
+        font-size: 1rem;
+    }
+    .actual-Email-Container p{
+        font-size: .8rem;
+        font-weight: 600;
+    }
+}

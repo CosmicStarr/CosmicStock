@@ -1,0 +1,47 @@
+<app-nav></app-nav>
+<div class="outter-container">
+    <div class="personal-Info-container" *ngIf="emailConfirmed">
+        <div class="change-title-container">
+            <h5>Update your Email Address</h5>
+            <p>Choose a unique email to receive information!</p>
+        </div>
+        <form class="register-form" [formGroup]="changeEmailForm" (ngSubmit)="onSubmit()" autocomplete="off" >
+            <div class="form-Information">
+                <div class="form-group-confirm">
+                    <input formControlName="newEmail" type="email" name="newEmail" placeholder="New Email">
+                    <span class="valid" *ngIf="changeEmailForm.get('newEmail')?.errors && changeEmailForm.get('newEmail')?.touched">An email is required!</span>
+                </div>
+            </div>
+            <div class="form-Information">
+                <div class="form-group-confirm">
+                    <input formControlName="confirmNewEmail" type="email" name="confirmNewEmail" placeholder="Retype Email">
+                    <span class="valid" *ngIf="changeEmailForm.get('confirmNewEmail')?.errors && changeEmailForm.get('confirmNewEmail')?.touched">Retype is required!</span>
+                    <span class="valid" *ngIf="changeEmailForm.hasError('notSame')">Emails are not the same!</span>	  
+                </div>
+            </div>
+            <div class="form-Information">
+                <div class="form-group-confirm">
+                    <input formControlName="currentPassword" type="password" name="currentPassword" placeholder="Current Password">
+                    <div class="valid" *ngIf="changeEmailForm.get('currentPassword')?.touched"><span class="valid" *ngIf="changeEmailForm.get('currentPassword')?.errors && changeEmailForm.get('currentPassword')?.touched">Password is required</span></div> 	
+                    <span class="spanInfo">Use a minimum of 8 characters.</span>  
+                </div>
+            </div>
+            <div class="button-Info">
+                <button type="submit">Change Email</button>
+            </div> 
+        </form> 
+    </div>
+    <ng-container *ngIf="!emailConfirmed">
+        <div class="alert-Container">
+            <div class="emailConfirmed-pic-container">
+                <img src="../assets/Images/SomethingWentWrong.png" alt="Email confirm picture">
+            </div>
+            <div class="alert" role="alert">
+                <p class="email-Color">Something went wrong!</p>
+                <p class="email-Color"> Were unable to confirm your email</p>
+                <button routerLink="" class="input-Button" type="button"> Send another link?</button> 	
+            </div>
+        </div>
+    </ng-container>
+</div>
+<app-footer></app-footer>

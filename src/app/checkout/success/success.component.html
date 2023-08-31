@@ -1,0 +1,75 @@
+<app-nav></app-nav>
+<div class="header-info">
+    <p>Purchase Complete!</p>
+</div>
+<div class="Purchase-Container">
+    <div class="left-side">
+        <div class="check-Container">
+            <img class="check" src="../assets/Images/checkPic.png" alt="">
+        </div>
+        <div class="Thankyou-Container">
+            <p class="thankYou">Thank you for your Purchase!</p>
+            <p>You will receive an order confirmation via email with details of your order.</p>
+            <p>your order # is: {{order?.id}}</p>
+            <div class="link-align">
+                <a routerLink="">&larr; continue shopping?</a>
+            </div>
+        </div>
+    </div>
+    <div class="right-side">
+        <table class="Purchase-Information">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>QTY</th>
+                </tr>
+            </thead>
+            <ng-container *ngFor="let item of order?.orderedProducts">
+                <tr>
+                    <td>{{item.name}}</td>
+                    <td class="toTheRight">{{item.price | currency}}</td>
+                    <td class="toTheRight">{{item.amount}}</td>
+                </tr>
+            </ng-container>
+        </table>
+        <div class="bottom-Table">
+            <div class="left-bottom">
+                <p class="bordering-top toTheRight">Subtotal</p>
+                <p class="bordering toTheRight">Shipping</p>
+                <p class="bordering-bottom toTheRight">Grand Total</p>
+            </div>
+            <div class="right-bottom">
+                <p class="bordering-top1 toTheRight">{{order?.subtotal | currency}}</p>
+                <p class="bordering1 toTheRight">{{order?.shippingHandlingPrice | currency}}</p>
+                <p class="bordering-bottom1 toTheRight">{{order?.trueTotal | currency}}</p>
+            </div>
+        </div>
+        <hr class="hr-line">
+        <div class="address-box-Container">
+            <div class="flex-down" *ngIf="actualShippingAddresses != null">
+                <h4>Shipping Address</h4>
+                <address>
+                    <p>{{actualShippingAddresses?.firstName}} {{actualShippingAddresses?.lastName}}</p>
+                    <p>{{actualShippingAddresses?.addressLine1}} {{actualShippingAddresses?.addressLine2}}</p>
+                    <p>{{actualShippingAddresses?.city}}, {{actualShippingAddresses?.state}}</p>
+                    <p>{{actualShippingAddresses?.zipCode}}</p>
+                    <p>{{actualShippingAddresses?.phoneNumber}}</p>
+                </address>
+            </div>
+            <div class="flex-down" *ngIf="actualBillingAddresses != null">
+                <h4>Billing Address</h4>
+                <address>
+                    <p>{{actualBillingAddresses?.firstName}} {{actualBillingAddresses?.lastName}}</p>
+                    <p>{{actualBillingAddresses?.addressLine1}} {{actualBillingAddresses?.addressLine2}}</p>
+                    <p>{{actualBillingAddresses?.city}}, {{actualBillingAddresses?.state}}</p>
+                    <p>{{actualBillingAddresses?.zipCode}}</p>
+                    <p>{{actualBillingAddresses?.phoneNumber}}</p>
+                </address>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <app-footer></app-footer>
+</div>

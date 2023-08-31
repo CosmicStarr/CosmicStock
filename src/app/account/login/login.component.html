@@ -1,0 +1,49 @@
+<div class="LoginContainer">
+    <div class="actual-Container">
+                <form class="register-form" [formGroup]="loginForm"  autocomplete="off">
+                    <div class="form-group ">
+                        <input formControlName="email" type="email" name="email" placeholder="Enter an email">
+                        <span class="valid" *ngIf="!loginForm.get('email')?.valid && loginForm.get('email')?.touched">An Email is required!</span>
+                    </div>
+                    <div class="form-group ">
+                        <input formControlName="password" type="password" name="password" placeholder="Password">
+                        <span class="valid" *ngIf="!loginForm.get('password')?.valid && loginForm.get('password')?.touched">Password is required!</span>
+                    </div> 
+                    <!-- <ng-container *ngIf="(currentUser$|async)">
+                        <div class="form-group"  >
+                            <label for="inputRole">User Role (THIS IS A ROLE)</label>
+                            <select id="inputRole" class="form-control" #role (change)="roleChange(role?.value)" formControlName="role">
+                                <option value="" disabled>Choose a role</option>
+                                <option *ngFor="let item of roleOptions" [ngValue]="item" >
+                                {{item}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputClaim">Claim (THIS IS A Claim)</label>
+                            <select id="inputClaim" class="form-control" #JobDepartment (change)="claimChange(JobDepartment?.value)" formControlName="JobDepartment">
+                                <option value="" disabled>Choose a Developer Type</option>
+                                <option *ngFor="let item of developerType" [ngValue]="item">
+                                {{item}}
+                                </option>
+                            </select>
+                        </div>
+                    </ng-container> -->
+                    <button [ngClass]="{greyColor: !loginForm.valid}" type="submit" (click)="onSubmit()" class="LoginButton">Log in</button>
+                    <a class="Fpassword" routerLink="/forgot-password">Forgot Password?</a>
+                    <hr class="Hline">
+                    <div class="Register-Button-Container">
+                        <button class="RegisterButton open-modal" (click)="toggleMenuOpen()">Register here!</button>
+                    </div>
+                </form>
+    </div>
+</div>
+<dialog 
+id="Rmodal"
+class="modal" 
+*ngIf="showMenu"
+appclickOutside 
+(clickOutside)="toggleMenuClose()"
+[ngClass]="{'nav-open':showMenu}">
+    <app-register-page id="reg-form-container"></app-register-page>
+</dialog>

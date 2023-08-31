@@ -1,0 +1,99 @@
+<div class="PostaPicContainer">
+    <div class="ModalHeader">
+        <div class=""></div>
+        <p class="PostTitle">Create Post</p>
+        <p class="PostClose"><i class="fa fa-close"></i></p>
+    </div>
+    <div class="ModalInformation">
+        <button routerLink="/admin/dash">View Products</button>
+    </div>
+    <form enctype="multipart/form-data" [formGroup]="uploadPostForm" class="Overflow-Container">
+        <div class="inputOutterContainer">
+            <div class="inputContainer">
+                <input formControlName="name" type="text" placeholder="name"><i class="fa fa-"></i>
+            </div>
+            <div class="inputContainer">
+                <input formControlName="featuredName" type="text" placeholder="featuredName"><i class="fa fa-"></i>
+            </div>
+            <div class="inputContainer">
+                <input formControlName="description" type="text" placeholder="description"><i class="fa fa-"></i>
+            </div>
+            <div class="inputContainer">
+                <input formControlName="msrp" type="number" placeholder="price"><i class="fa fa-"></i>
+            </div>
+            <div class="inputContainer">
+                <input formControlName="price" type="number" placeholder="price"><i class="fa fa-"></i>
+            </div>
+            <div class="booleanInputs">
+                <div class="display">
+                    <label for="isAvailable">Is Available?</label>
+                    <input formControlName="isAvailable" name="isAvailable" type="checkbox"><i class="fa fa-"></i>
+                </div>
+                <div class="display">
+                    <label for="isFeatured"> Is Featured?</label>
+                    <input formControlName="isFeatured" name="isFeatured" type="checkbox"><i class="fa fa-"></i>
+                </div>
+                <div class="display">
+                    <label for="isOnSale">Is On Sale?</label>
+                    <input formControlName="isOnSale" name="isOnSale" type="checkbox"><i class="fa fa-"></i>
+                </div>
+            </div>
+            <div class="detailsForm">
+                <div  class="detailsContainer" formGroupName="details">
+                    <div class="inputContainer">
+                        <input formControlName="actualDetails" type="text" placeholder="actualDetails"><i class="fa fa-"></i>
+                        <input formControlName="actualDetails1" type="text" placeholder="actualDetails1"><i class="fa fa-"></i>
+                        <input formControlName="actualDetails2" type="text" placeholder="actualDetails2"><i class="fa fa-"></i>
+                        <input formControlName="actualDetails3" type="text" placeholder="actualDetails3"><i class="fa fa-"></i>
+                        <input formControlName="actualDetails4" type="text" placeholder="actualDetails4"><i class="fa fa-"></i>
+                    </div>
+                    <div class="inputContainer">
+                        <input formControlName="actualDetails5" type="text" placeholder="actualDetails5"><i class="fa fa-"></i>
+                        <input formControlName="actualDetails6" type="text" placeholder="actualDetails6"><i class="fa fa-"></i>
+                        <input formControlName="actualDetails7" type="text" placeholder="actualDetails7"><i class="fa fa-"></i>
+                        <input formControlName="actualDetails8" type="text" placeholder="actualDetails8"><i class="fa fa-"></i>
+                        <input formControlName="actualDetails9" type="text" placeholder="actualDetails9"><i class="fa fa-"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="SelectList">
+                <div class="categorySelectList">
+                    <label for="state" class="form-label">Category</label>
+                    <select formControlName="category">
+                        <option value="null">-Please Select a Category-</option>
+                        <option *ngFor="let item of category" [value]="item.id">
+                            {{item.name}}
+                        </option>
+                    </select>
+                </div>
+                <div class="brandSelectList">
+                    <label for="state" class="form-label">Brand</label>
+                    <select formControlName="brand">
+                        <option value="null">-Please Select a brand-</option>
+                        <option *ngFor="let item of brand" [value]="item.id">
+                            {{item.name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="DropContainer"
+        appDrag
+        (FilesInformation) = "pictureSelect($event)">
+            <div class="img-Container">
+                <img draggable="false" *ngFor="let i of uploadedImage" class="imgDiv" [src]="i" alt="">
+                <video *ngFor="let v of uploadedVideo" class="videoDiv" preload="metadata">
+                    <source [src]="v" type="video/mp4">
+                </video>
+                <p id="pTag" #pTag> Drag/drop a <a (click)="fileInput.click()">pic</a></p>
+                <a class="MorePics" [ngClass]="{'open': show}" (click)="fileInput.click()"> Click here to add more!</a>
+            </div>
+        </div>
+        <input 
+        formControlName="file" 
+        class="DropContainerPic" 
+        multiple type="file" 
+        hidden #fileInput accept="image/png,video/mp4,image/jpeg" (change)="pictureSelected($event)"/>
+    </form>
+    <button (click)="onSubmit()" class="post-Button">Post</button>
+</div>

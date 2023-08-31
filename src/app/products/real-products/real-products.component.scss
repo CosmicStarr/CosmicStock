@@ -1,0 +1,124 @@
+
+.Products-Container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+.products{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border-radius: 2%;
+    gap: .5rem;
+}
+.product-Cart-and-Price{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+.product-Cart-and-Price input{
+    cursor: pointer;
+    padding: .5rem 1.3rem .5rem 1.3rem;
+    background-color: orangered;
+    width: 65%;
+    color: whitesmoke;
+    border: none;
+    border-radius: 20px;
+    text-shadow: .1rem .1rem .3rem black;
+    box-shadow:.1rem .1rem .3rem rgb(0, 0,0);
+}
+.price{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #585858;
+    text-shadow: .1rem .1rem .2rem #585858;
+}
+.product-Title{
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-shadow: .1rem .1rem .2rem #585858;
+}
+.products img:hover{
+    transform: scale(1.05);
+}
+.img-container{
+    cursor: pointer;
+    width: 100%;
+    overflow: hidden;
+}
+.products img{
+    border-radius: 2%;
+    transition: all 0.5s;
+    width: 100%;
+}
+.showNone{
+    display: none;
+}
+.loadingContainer{
+    width: 100%;
+    text-align: center;
+}
+.loading{
+    width: 100px;
+}
+@media screen and (max-width:78em){
+    .Products-Container{
+        padding: .5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr ;
+        justify-items: center;
+        align-items: center;
+        gap: 1rem;
+    }
+    .products{
+        width: 100%;
+    }
+}
+@media screen and (max-width:65em){
+    .img-container{
+        width: 80%;
+    }
+}
+@media screen and (max-width:44em){
+    .Products-Container{
+        grid-template-columns: 1fr 1fr;
+    }
+    .products{
+        width: 80%;
+    }
+    .img-container{
+        width: 100%;
+    }
+    .img-container img{
+        width: 100%;
+    }
+    .product-info{
+        text-align: center;
+        width: 100%;
+    }
+    .product-Title{
+        font-size: .8rem;
+    }
+    .product-Cart-and-Price{
+        text-align: center;
+        width: 100%;
+    }
+    .product-Cart-and-Price input{
+        font-size: .8rem;
+        width: 100%;
+    }
+}
+@media screen and (max-width:24em){
+    .products{
+        width: 100%;
+    }
+    .product-Title{
+        font-size: .8rem;
+    }
+    .product-Cart-and-Price input{
+        font-size: .8rem;
+    }
+}
+

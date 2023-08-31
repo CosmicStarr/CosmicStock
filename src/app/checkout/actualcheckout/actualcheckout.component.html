@@ -1,0 +1,236 @@
+
+<app-nav></app-nav>
+    <div class="container-main-width">
+        <div class="header-info">
+            <h1>Checkout</h1>
+            <p class="lead">You're almost there! Keep going!</p>
+        </div>
+        <div class="checkoutform-Container-plus">
+            <div class="actual-checkoutform">
+                <h2 class="mb-3">Address</h2>
+                <!-- address app goes here -->
+                    <ng-container *ngIf="address">
+                        <div class="address-container" >
+                            <address class="address-Information">
+                                <h2 class="mb-3" *ngIf="!address?.shippingIsBilling">Shipping Address</h2>
+                                <h2 class="mb-3" *ngIf="address?.shippingIsBilling">Shipping & billing Address</h2>
+                                <p>{{address?.firstName}} {{address?.lastName}}</p>
+                                <p>{{address?.addressLine1}} {{address?.addressLine2}}</p>
+                                <p>{{address?.city}}, {{address?.state}} {{address?.zipCode}}</p>
+                                <p>{{address?.phoneNumber}}</p>
+                            </address>
+                            <button class="RegisterButton"(click)="changeShippingAddress()" >Change</button>
+                        </div>
+                    </ng-container>
+                <form class="actual-Form" [formGroup]="checkoutForm" *ngIf="!address">
+                    <div class="namePlus">
+                        <div class="flexColumn fiftyPercent oneHundred">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input formControlName="firstName"  id="firstName" type="text" class="form-control padding5" placeholder="First Name">
+                        </div>
+                        <div class="flexColumn fiftyPercent oneHundred">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input formControlName="lastName" id="lastName" type="text" class="form-control padding5" placeholder="Last Name">
+                        </div>
+                    </div>
+                    <div class="address1-Street-Info flexColumn">
+                        <label for="Street" class="form-label"> Address line 1</label>
+                        <input formControlName="addressLine1" id="Addressline1" type="text" class="form-control padding5" placeholder="Address line 1">
+                    </div> 
+                    <div class="address2-Street-Info flexColumn">
+                        <label for="Street" class="form-label"> Address line 2</label>
+                        <input formControlName="addressLine2" id="Addressline2" type="text" class="form-control padding5" placeholder="Address line 2">
+                    </div> 
+                    <div class="address2-Street-Info flexColumn">
+                        <label for="phoneNumber" class="form-label"> Phone Number</label>
+                        <input formControlName="phoneNumber" id="phoneNumber" type="text" class="form-control padding5" placeholder="Phone Number">
+                    </div> 
+                    <div class="city-plus namePlus">                             
+                        <div class="city-Container flexColumn fiftyPercent oneHundred">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" placeholder="City" formControlName="city" class="form-control padding5">
+                            <!-- <select formControlName="city" id="city" class="form-control padding5">
+                                <option value="">-Select your city-</option>
+                                <option>Brooklyn</option>
+                            </select> -->
+                        </div>
+                        <div class="state-Container flexColumn fiftyPercent oneHundred">
+                            <label for="state" class="form-label">State</label>
+                            <input type="text" placeholder="State" formControlName="state" class="form-control padding5">
+                            <!-- <select formControlName="state" id="state" class="form-control padding5">
+                                <option value="">-Select your state-</option>
+                                <option>NY</option>
+                            </select> -->
+                        </div>
+                    </div>
+                    <div class="zipCode-plus namePlus">                                
+                        <div class="flexColumn fiftyPercent oneHundred">
+                            <label for="ZipCode" class="form-label">ZipCode</label>
+                            <input formControlName="zipCode" id="zipCode" type="text" class="form-control padding5" placeholder="ZipCode">
+                        </div> 
+                        <div class="checkbox-Container">
+                            <div class="setAddressInformation">
+                                <!-- You have to disabled this checkbox if the data changed! -->
+                                <input [disabled]="!checkoutForm.valid" [checked]="setAddressInfo" id="saveinfo" type="checkbox" class="form-check-input" (click)="saveUserAddress()">
+                                <label class="form-check-label" for="saveinfo">Save as default shipping address?</label>
+                            </div>  
+                            <div class="setAddressInformation">
+                                <!-- You have to disabled this checkbox if the data changed! -->
+                                <input [disabled]="!checkoutForm.valid" id="saveinfo" type="checkbox" class="form-check-input" [checked]="setAddressBillingInfo" (click)="billingIsShippingAddress()">
+                                <label class="form-check-label" for="saveinfo">Billing is the same as shipping?</label>
+                            </div>  
+                        </div>
+                    </div> 
+                </form> 
+                <!-- end of address -->
+            </div>
+            <div class="billing-Container actual-checkoutform"  [ngClass]="{removeDiv: setAddressBillingInfo}">
+                <h2 class="mb-3">Billing </h2>
+                <!-- address app goes here -->
+                <div class="billingAddress-Container" *ngIf="billingaddress">
+                    <div class="address-container">
+                        <address class="address-Information">
+                            <h2 class="mb-3">Billing Address</h2>
+                            <p>{{billingaddress?.firstName}} {{billingaddress?.lastName}}</p>
+                            <p>{{billingaddress?.addressLine1}} {{billingaddress?.addressLine2}}</p>
+                            <p>{{billingaddress?.city}}, {{billingaddress?.state}} {{billingaddress?.zipCode}}</p>
+                            <p>{{billingaddress?.phoneNumber}}</p>
+                        </address>
+                        <button class="RegisterButton1" (click)="changeBillingAddress()">Change</button>
+                    </div>
+                </div>
+                <form class="actual-Form" [formGroup]="checkoutBillingForm"  *ngIf="!billingaddress">
+                    <div class="namePlus">
+                        <div class="flexColumn fiftyPercent oneHundred">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input formControlName="firstName"  id="firstName" type="text" class="form-control padding5" placeholder="First Name">
+                        </div>
+                        <div class="flexColumn fiftyPercent oneHundred">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input formControlName="lastName" id="lastName" type="text" class="form-control padding5" placeholder="Last Name">
+                        </div>
+                    </div>
+                    <div class="address1-Street-Info flexColumn">
+                        <label for="Street" class="form-label"> Address line 1</label>
+                        <input formControlName="addressLine1" id="Addressline1" type="text" class="form-control padding5" placeholder="Address line 1">
+                    </div> 
+                    <div class="address2-Street-Info flexColumn">
+                        <label for="Street" class="form-label"> Address line 2</label>
+                        <input formControlName="addressLine2" id="Addressline2" type="text" class="form-control padding5" placeholder="Address line 2">
+                    </div> 
+                    <div class="address2-Street-Info flexColumn">
+                        <label for="phoneNumber" class="form-label"> Phone Number</label>
+                        <input formControlName="phoneNumber" id="phoneNumber" type="text" class="form-control padding5" placeholder="Phone Number">
+                    </div> 
+                    <div class="city-plus namePlus">                             
+                        <div class="city-Container flexColumn fiftyPercent oneHundred">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" placeholder="City" formControlName="city" class="form-control padding5">
+                            <!-- <select formControlName="city" id="city" class="form-control padding5">
+                                <option value="">-Select your city-</option>
+                                <option>Brooklyn</option>
+                            </select> -->
+                        </div>
+                        <div class="state-Container flexColumn fiftyPercent oneHundred">
+                            <label for="state" class="form-label">State</label>
+                            <input type="text" placeholder="State" formControlName="state" class="form-control padding5">
+                            <!-- <select formControlName="state" id="state" class="form-control padding5">
+                                <option value="">-Select your state-</option>
+                                <option>NY</option>
+                            </select> -->
+                        </div>
+                    </div>
+                    <div class="zipCode-plus namePlus">                                
+                        <div class="flexColumn fiftyPercent oneHundred">
+                            <label for="ZipCode" class="form-label">ZipCode</label>
+                            <input formControlName="zipCode" id="zipCode" type="text" class="form-control padding5" placeholder="ZipCode">
+                        </div> 
+                        <div class="fiftyPercent alignSelf displayFlex2 oneHundred">
+                            <!-- You have to disabled this checkbox if the data changed! -->
+                            <input [disabled]="!checkoutBillingForm.valid" [checked]="savebillingInfo" id="saveinfo" type="checkbox" class="form-check-input"(click)="saveUserBillingAddress()" >
+                            <label class="form-check-label" for="saveinfo">Save as default Billing address?</label>
+                        </div>                    
+                    </div> 
+                </form> 
+            </div>
+        </div>
+        <div class="horzional-line-container">
+            <hr class="Horizonal-Line"> 
+        </div>
+        <div class="payment-Container">
+            <ng-container>
+                <div class="actual-Payment-Container">
+                    <h2 class="payment-Title">Payment</h2>
+                    <form class="actual-Payment-Form" [formGroup]="paymentForm">
+                            <div class="displayFlex">
+                                <div class="flexColumn fiftyPercent oneHundred">
+                                    <label for="fullName" class="form-label">Full name as displayed on card</label>
+                                    <input formControlName="nameOnCard" type="text" id="nameOnCard" class="StripeInfo">
+                                </div>
+                                <div class="flexColumn fiftyPercent oneHundred">
+                                    <label for="cardNumber" class="form-label">Card Number</label>
+                                    <div #cardNumber  id="cardNumber"></div>
+                                    <ng-container *ngIf="cardError">
+                                        <span [ngClass]="{'text-danger': cardError}">{{cardError}}</span>
+                                    </ng-container>
+                                    <small class="text-muted" *ngIf="">
+                                        As displayed on Card
+                                    </small>
+                                </div>
+                            </div> 
+                            <div class="displayFlex">   
+                                <div class="flexColumn fiftyPercent oneHundred">
+                                    <label for="cardExpiry" class="form-label">Expiration Date</label>
+                                    <div #cardExpiry  id="cardExpiry"></div>
+                                </div>
+                                <div class="flexColumn fiftyPercent oneHundred">
+                                    <label for="cardCvc" class="form-label">CVC</label>
+                                    <div #cardCvc id="cardCvc"></div>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+            </ng-container>
+            <section class="orderSum-container" *ngIf="(OrderService$ | async) as total">
+                <div class="actual-order-container">
+                    <div class="order-button">
+                        <button [ngClass]="{'lite-button':!PaymentFormValid}" [disabled]="!PaymentFormValid || loading || !checkoutForm.valid"><i *ngIf="loading" class="fa fa-spinner fa-spin"></i><a  (click)="submitOrder()">Place an Order</a></button>
+                        <p class="privacy">by placing your order, you agree to CosmicStock <a routerLink="" >privacy notice</a> and <a routerLink="">condition of use</a>.</p>
+                    </div>
+                    <h3>Order Summary</h3>
+                    <div class="order-summary-info">
+                        <div class="left-info">
+                            <p>items:</p>
+                            <p>Shipping & handling:</p>
+                            <p>total before tax:</p>
+                            <p>estimated tax:</p>
+                  
+                            <h3>Order Total:</h3>
+                        </div>
+                        <div class="right-info">
+                            <ng-container *ngIf="(ShoppingCart$|async) as Cart">
+                                <p>{{Cart.shoppingCartItems?.length}}</p>
+                            </ng-container>
+                            <p *ngIf="total.shipping === 0" class="line-Across">Free! <s>{{total.shipping|currency}}</s></p>
+                            <p *ngIf="total.shipping !== 0">{{total.shipping|currency}}</p>
+                            <p class="total-tax">{{total.subTotal|currency}}</p>
+                            <p class="est-tax">444</p>
+                       
+                            <h3 class="total-order">{{total.total|currency}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-container">
+            
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="footer">
+        <app-footer></app-footer>
+    </div>
+
+
+
+
+

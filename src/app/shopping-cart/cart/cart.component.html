@@ -1,0 +1,51 @@
+<app-nav></app-nav>
+<div class="Shopping-Cart-Container">
+    <div class="shopping-Title">
+        <p>Shopping-Cart</p>
+    </div>
+    <ng-container *ngIf="(ShoppingCart$ | async) === null">
+        <div class="Empty-Cart-Container">
+            <img src="../assets/Images/EmptyCart3.png" alt="">
+            <p>Oh no! It looks like your shopping cart is empty!</p>
+            <a routerLink=""> &larr; continue shopping?</a>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="(ShoppingCart$ | async) as cart">
+        <div  class="actual-Shopping-Cart-Info-Container">
+            <div class="actual-Shopping-Cart-Info">
+                <ng-container *ngFor="let item of cart.shoppingCartItems">
+                    <ng-container *ngFor="let pics of item.imageUrl">
+                        <div class="img-Container-Plus" *ngIf="pics.isMain == true" >
+                            <img  src="{{pics.photoUrl}}" alt="">
+                            <div class="product-Info-Container">
+                                <div class="product-Info">
+                                    <div class="product-options">
+                                        <h3>{{item.name}}</h3>
+                                        <p>Color</p>
+                                        <p>Red</p>
+                                    </div>
+                                    <div class="product-Qty">
+                                        <i (click)="increment(item)" class="fa fa-plus"></i>
+                                        <p>{{item.amount}}</p>
+                                        <i (click)="decrement(item.id)" class="fa fa-minus"></i>
+                                    </div>
+                                </div>
+                                <div class="price-Info-plus">
+                                    <h3>{{item.price|currency}}</h3>
+                                    <div class="just-Space"></div>
+                                    <button (click)="removeItem(item)" class="remove-Button">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </div>
+            <div class="ordersummary">
+                <app-ordersummary></app-ordersummary>
+            </div>
+        </div>
+    </ng-container>
+</div>
+<div class="footer">
+    <app-footer></app-footer>
+</div>

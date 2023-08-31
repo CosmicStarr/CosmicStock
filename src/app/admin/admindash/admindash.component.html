@@ -1,0 +1,85 @@
+<div class="container-fluid mt-3">
+    <div class="mat-elevation-z8 py-5 mt-5 container-fluid colour">
+      <form [formGroup]="searchForm"> 
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label >Search</mat-label>
+          <input formControlName="search" (keyup)="filterSearch()" type="search" matInput/>
+          <mat-icon matPrefix>search</mat-icon>
+          <mat-icon matSuffix style="cursor: pointer;" (click)="clearSearch()">close</mat-icon>
+        </mat-form-field>
+        <div class="table-container">
+          <table  mat-table class="full-width-table" matSort aria-label="Elements" [dataSource]="dataSource" class="w-100">
+            <!-- Id Column -->
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+              <td mat-cell *matCellDef="let dataSource">{{dataSource.id}}</td>
+            </ng-container>
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+              <td mat-cell *matCellDef="let dataSource">{{dataSource.name}}</td>
+              <td mat-footer-cell *matFooterCellDef class="text-italic">Total Products:</td>
+            </ng-container>
+            <ng-container matColumnDef="description">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+              <td mat-cell *matCellDef="let dataSource">{{dataSource.description}}</td>
+              <td mat-footer-cell *matFooterCellDef colspan="9" class="text-italic">{{amount}}</td>
+            </ng-container>
+            <ng-container matColumnDef="price">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+              <td mat-cell *matCellDef="let dataSource">{{dataSource.price}}</td>
+            </ng-container>
+            <ng-container matColumnDef="isOnSale">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>On Sale</th>
+              <td mat-cell *matCellDef="let dataSource">{{dataSource.isOnSale}}</td>
+            </ng-container>
+            <ng-container matColumnDef="isAvailable">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Available</th>
+              <td mat-cell *matCellDef="let dataSource">{{dataSource.isAvailable}}</td>
+            </ng-container>
+               <!-- <ng-container matColumnDef="photos">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Main Photo</th>
+              <td mat-cell *matCellDef="let dataSource">{{dataSource.photosDTO}}</td>
+            </ng-container> -->
+            <ng-container matColumnDef="category">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Category</th>
+              <td mat-cell *matCellDef="let dataSource">{{dataSource.category}}</td>
+            </ng-container>
+            <ng-container matColumnDef="brand">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Brand</th>
+              <td mat-cell *matCellDef="let dataSource">{{dataSource.brand}}</td>
+            </ng-container>
+            <ng-container matColumnDef="actions" >
+              <th mat-header-cell  *matHeaderCellDef>Actions </th>
+              <td mat-cell *matCellDef="let row">
+                <button routerLink="/admin/edit/{{row.id}}" mat-button>
+                  Edit
+                </button>
+                <button (click)="deleteProduct(row.id)" mat-button>
+                  delete
+                </button>
+              </td>
+            </ng-container>
+            <!-- Header Row -->
+            <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky:true"></tr>
+            <tr mat-row *matRowDef="let dataSource; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+      </form>
+     
+    
+    
+      <mat-paginator [ngClass]="{'hidden':!isLoading}" #paginator
+          [length]="dataSource?.data?.length"
+          [pageIndex]="0"
+          [pageSize]="10"
+          [pageSizeOptions]="[5, 10, 20]">
+      </mat-paginator>
+    </div>
+  </div>
+  
+  
+  
+  
+  

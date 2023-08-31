@@ -1,0 +1,71 @@
+<div class="address-Info-container">
+    <form class="address-form" (ngSubmit)="onSubmit()" [formGroup]="addressForm" autocomplete="off">
+        <div class="form-group state-city-Information">
+            <div class="form-group-name oneHundred">
+                <input formControlName="firstName" type="text" placeholder="First Name">
+                <span *ngIf="addressForm.get('firstName')?.errors && addressForm.get('firstName')?.dirty">A Password is required!</span>
+            </div>
+            <div class="form-group-name oneHundred">
+                <input formControlName="lastName" type="text" placeholder="Last Name">
+            </div>
+        </div>
+        <div class="form-group">
+            <input formControlName="addressLine1" type="text" placeholder="Address-Line 1">
+        </div>
+        <div class="form-group">
+            <input formControlName="addressLine2" type="text" placeholder="Address-Line 2">
+        </div>
+        <div class="form-group state-city-Information">
+            <div class="form-group-City oneHundred">
+                <input formControlName="city" type="text" placeholder="City">
+             
+            </div>
+            <div class="form-group-State oneHundred">
+                <input formControlName="state" type="text"  placeholder="State">
+                <!-- <span *ngIf="registerForm.get('newPassword')?.errors && registerForm.get('newPassword')?.dirty">A Password is required!</span>	   -->
+            </div>
+        </div>
+        <div class="form-group">
+            <input formControlName="zipCode" type="text" placeholder="Zipcode">
+        </div>
+        <div class="form-group">
+            <input formControlName="phoneNumber" type="text" placeholder="Phone number">
+        </div>
+        <div class="Title-Container">
+            <span>Address Type?</span>   
+            <div class="address-Selection">
+                <ng-container *ngIf="id != 0">
+                    <div class="shipping-Address-Info align">
+                        <input [disabled]="!addressForm.valid" formControlName="addressType" type="radio" id="{{addressInfo?.addressType}}"  value="{{addressInfo?.addressType}}"> 
+                        <label [ngClass]="{'greyOut':!addressForm.valid}" for="{{addressInfo?.addressType}}"> {{addressInfo?.addressType}} address </label>
+                    </div> 
+                </ng-container>
+                <ng-container *ngIf="addressInfo1 != null && id == 0">
+                    <div class="shipping-Address-Info align">
+                        <input [disabled]="!addressForm.valid" formControlName="addressType" type="radio" id="billing"  value="billing"> 
+                        <label [ngClass]="{'greyOut':!addressForm.valid}" for="billing"> Default Billing Address </label>
+                    </div> 
+                </ng-container>
+                <ng-container *ngIf="addressInfo2 != null && id == 0">
+                    <div class="shipping-Address-Info align">
+                        <input [disabled]="!addressForm.valid" formControlName="addressType" type="radio" id="shipping"  value="shipping"> 
+                        <label [ngClass]="{'greyOut':!addressForm.valid}" for="shipping"> Default Shipping Address </label>
+                    </div> 
+                </ng-container>
+                <ng-container *ngIf="addressInfo1 == null && addressInfo2 == null">
+                    <div class="shipping-Address-Info align">
+                        <input [disabled]="!addressForm.valid" formControlName="addressType" type="radio" id="shipping"  value="shipping"> 
+                        <label [ngClass]="{'greyOut':!addressForm.valid}" for="shipping"> Default Shipping Address </label>
+                    </div> 
+                    <div class="shipping-Address-Info align">
+                        <input [disabled]="!addressForm.valid" formControlName="addressType" type="radio" id="billing"  value="billing"> 
+                        <label [ngClass]="{'greyOut':!addressForm.valid}" for="billing"> Default Billing Address </label>
+                    </div> 
+                </ng-container>
+            </div> 
+        </div>
+        <div class="button-Container">
+            <button [ngClass]="{'greyOut1':!addressForm.valid}" type="submit">Save Changes</button>
+        </div>
+    </form> 
+</div>

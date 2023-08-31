@@ -1,0 +1,34 @@
+<section class="orderSum-container" *ngIf="(OrderService$ | async) as total">
+    <div class="actual-order-container">
+        <div class="order-button">
+            <button><a routerLink="/checkout/checkout" (click)="createPaymentIntent()">Proceed to Checkout</a></button>
+            <button><a routerLink="">&larr; Continue Shopping</a></button>
+        </div>
+        <h3>Order Summary</h3>
+        <div class="order-summary-info">
+            <div class="left-info">
+                <p>items:</p>
+                <p>Shipping & handling:</p>
+                <p>total before tax:</p>
+                <p>estimated tax:</p>
+      
+                <h3>Order Total:</h3>
+            </div>
+            <div class="right-info">
+                <ng-container *ngIf="(ShoppingCart$|async) as Cart">
+                    <p>{{Cart.shoppingCartItems?.length}}</p>
+                </ng-container>
+                <p *ngIf="total.shipping === 0" class="line-Across">Free! <s>{{total.shipping|currency}}</s></p>
+                <p *ngIf="total.shipping !== 0">{{total.shipping|currency}}</p>
+                <p>{{total.shipping|currency}}</p>
+                <p class="total-tax">{{total.subTotal|currency}}</p>
+                <p class="est-tax">444</p>
+           
+                <h3 class="total-order">{{total.total|currency}}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-container">
+
+    </div>
+</section>

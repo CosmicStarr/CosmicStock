@@ -1,0 +1,163 @@
+.outter-container{
+    display: flex;
+    align-items: center;
+    height: 80%;
+}
+.personal-Info-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    max-width: 71.3rem;
+    height: 50vh;
+    width: 100vw;
+}
+.change-title-container{
+    height: 20%;
+    text-align: center;
+}
+.change-title-container h5{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+.change-title-container p{
+    font-weight: 600;
+    font-size: .8rem;
+}
+.register-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 30rem;
+    height: 80%;
+}
+.valid{
+    color: red;
+}
+.register-form p{
+    font-size: .8rem;
+    opacity: 0.5;
+}
+.register-form button{
+    box-shadow:.1rem .1rem .3rem rgb(0, 0,0) ;
+    text-shadow: .1rem .1rem .1rem rgb(175, 175, 175);
+    font-size: 1.1rem;
+    background-color: #f0f000;
+    border-radius: 5px;
+    border: none;
+    color: black;
+    width: 50%;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+.register-form button:hover{
+    cursor: pointer;
+    background-color: #ffff0e;
+}
+.form-Information{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.button-Info{
+    height: 20%;
+    width: 100%;
+    text-align: center;
+}
+.form-group-confirm{
+    width: 100%;
+}
+.spanInfo{
+    display: block;
+    margin-top: 1rem;
+    font-weight: 600;
+    font-size: .8rem;
+}
+.form-group-confirm input{
+    padding: .5rem;
+    width: 100%;
+    border-width:0px;
+    border-bottom: .5px solid rgb(0, 0, 0, .5);
+}
+.form-group-confirm input:focus{
+    outline: none;
+}
+///email confirmed
+.emailConfirmed-pic-container{
+    width: 60%;
+}
+.emailConfirmed-pic-container img{
+    width: 100%;
+}
+.alert-Container{
+    width: 500px;
+    margin: auto;
+    padding: 1rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .8rem;
+    background-color: aquamarine;
+    box-shadow: 2px 2px 9px 2px rgba(0, 0, 0, 0.301);
+}
+.email-Color{
+    font-weight: 600;
+    color: #ffff00;
+    text-shadow: .1rem .1rem .2rem rgb(0, 0, 0,0.3);
+    font-size: 1.5rem;
+}
+.input-Button{
+    width: 100%;
+    cursor: pointer;
+    background-color: #f0f000;
+    text-shadow: .1rem .1rem .2rem rgb(0, 0, 0,0.3);
+    box-shadow: 2px 2px 9px 2px rgba(0, 0, 0, 0.301);
+    border-radius: 5px;
+    border: none;
+    color: #006400;
+    width: 100%;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+.alert{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+
+@media screen and (max-width:54em){
+    .register-form{
+        gap: 2rem;
+        width: 100%;
+    }
+    .register-form button{
+        width: 100%;
+    }
+    .personal-Info-container{
+        gap: 2rem;
+        width: 100%;
+    }
+}
+@media screen and (max-width:26em){
+    .change-title-container h5{
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    .change-title-container p{
+        font-size: .7rem;
+    }
+    .form-Information{
+        flex-direction: column;
+        align-items: center;
+    }
+    .oneHundred{
+        width: 100%;
+    }
+    .register-form button{
+        width: 100%;
+    }
+
+}

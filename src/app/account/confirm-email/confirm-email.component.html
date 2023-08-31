@@ -1,0 +1,26 @@
+<div class="Email-Confirm-Container">
+	<div class="margin-Container">
+		<div class="alert-Container" >
+			<ng-container *ngIf="emailConfirmed">
+				<div class="emailConfirmed-pic-container">
+					<img src="../assets/Images/email-Confirm.png" alt="Email confirm picture">
+				</div>
+				<div class="alert"  role="alert">
+					<p class="email-Color">Wonderful!</p>
+					<p class="email-Color">Your email is confirmed</p> 
+					<button routerLink="" class="input-Button" type="button"> Back to CosmicStock?</button> 
+				</div>
+			</ng-container>
+			<ng-container *ngIf="!emailConfirmed">
+				<div class="emailConfirmed-pic-container">
+					<img src="../assets/Images/SomethingWentWrong.png" alt="Email confirm picture">
+				</div>
+				<div class="alert" role="alert">
+					<p class="email-Color">Something went wrong!</p>
+					<p class="email-Color"> Were unable to confirm your email</p>
+					<button routerLink="" class="input-Button" type="button"> Send another link?</button> 	
+				</div>
+			</ng-container>
+		</div>
+	</div>
+</div>

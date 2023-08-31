@@ -1,0 +1,229 @@
+.deFlex-Col{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.outter-Order-Container{
+    height: 500px;
+    overflow-y: scroll;
+    border: 1px solid rgb(0, 0, 0,0.1);
+}
+.orders-Container{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+}
+.orders-Container-information{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: gainsboro;
+}
+.padding-top-plus{
+    padding-top: 1rem;
+    padding-bottom: .5rem;
+}
+.padding-bottom-plus{
+    padding-top: .5rem;
+    padding-bottom: 1rem;
+}
+.more-Order-info{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+}
+.orderImgsPlus{
+    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow-x: auto;
+}
+.more-Order-info img{
+    width: 80px;
+}
+.more-Order-info a{
+    border: 1px solid rgb(0, 0, 0,0.3);
+    padding: 1rem;
+    color: orangered;
+    text-decoration: none;
+}
+.order-buttons{
+    display: flex;
+    gap: 1rem;
+    width: 45%;
+    text-align: center;
+}
+.orderCount{
+    text-align: center;
+}
+.order-details-button{
+    font-weight: 700;
+    display: block;
+    width: 50%;
+    text-shadow: .1rem .1rem .2rem rgb(0, 0, 0,0.3);
+}
+.more-Order-info a:hover{
+    transition: all .2s ease-in-out;
+    background-color: orangered;
+    color: white;
+}
+.back-button{
+    font-weight: 700;
+    display: block;
+    width: 50%;
+    text-shadow: .1rem .1rem .2rem rgb(0, 0, 0,0.3);
+}
+.Empty-Order-Container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.Empty-Order-Container p{
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
+.Empty-Order-Container a{
+    width: 100%;
+   
+}
+.img-Container{
+    width: 50%;
+}
+
+@media screen and (max-width:59em){
+    .Empty-Order-Container{
+        width: 100%;
+    }
+    .Empty-Order-Container p{
+        margin-top: 4rem;
+        font-size: 1.2rem;
+    }
+    .Empty-Order-Container img{
+        margin-top: 1rem;
+        width: 100%;
+    }
+    .orderCount{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 17%;
+        padding: 1rem;
+    }
+    .orders-Container{
+        width: 100%;
+        padding: .5rem;
+    }
+    .more-Order-info img{
+        width: 70px;
+    }
+    .more-Order-info a{
+        font-size: .9rem;
+        padding: 1rem;
+    }
+    .order-details-button{
+        width: 50%;
+    }
+    .order-buttons{
+        width: 45%;
+        text-align: center;
+    }
+    .order-buttons a{
+        font-size: .7rem;
+        padding: .8rem;
+    }
+    .back-button{
+        font-weight: 700;
+        display: block;
+        width: 50%;
+        text-shadow: .1rem .1rem .2rem rgb(0, 0, 0,0.3);
+    }
+}
+@media screen and (max-width:50em){
+
+    .order-buttons a{
+        font-size: .7.5rem;
+        padding: .7rem;
+    }
+    .orderCount{
+        gap: 1rem;
+        width: 100%;
+        justify-content: flex-start;
+    }
+}
+@media screen and (max-width:49em){
+    .orderCount{
+        width: 18%;
+    }
+}
+@media screen and (max-width:47em){
+    .orders-Container-information{
+        margin-bottom: .5rem;
+    }
+    .more-Order-info{
+        display: flex;
+        flex-direction: column;
+    }
+    .orderImgsPlus{
+        padding: 1rem;
+        width: 100%
+    }
+    .orderlength{
+        text-align: center;
+    }
+    .order-buttons{
+        width: 100%;
+        text-align: center;
+    }
+    .padding-top-plus{
+        font-size: .8rem;
+    }
+    .padding-bottom-plus{
+        font-size: .8rem;
+    }
+    .orderCount{
+        width: 100%;
+    }
+
+}
+@media screen and (max-width:45em){
+    // .orderCount{
+    //   width: 100%;
+    // }
+}
+@media screen and (max-width:26em){
+    .img-Container{
+        width: 60%;
+    }
+    .orders-Container-information{
+        flex-direction: column;
+        line-height: 1.2rem;
+        padding: .5rem;
+    }
+    .onehundred{
+        width: 100%;
+        display: flex;
+        align-content: center;
+        justify-content: space-between;
+    }
+    .padding-top-plus{
+        padding-top: 0rem;
+        padding-bottom: 0rem;
+        width: 50%;
+    }
+    .padding-bottom-plus{
+        padding-top: 0rem;
+        padding-bottom: 0rem;
+        width: 50%;
+    }
+    .orders-Container{
+        padding: .2rem;
+    }
+    .orderCount{
+        gap: 1rem;
+    }
+}

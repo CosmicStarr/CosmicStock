@@ -1,0 +1,89 @@
+.address-form{
+    line-height: 2rem;
+}
+.align{
+    display: flex;
+    gap: 1rem;
+}
+.Title-Container{
+    margin-bottom: 1rem;
+}
+
+.button-Container{
+    text-align: center;
+}
+.button-Container button{
+    box-shadow:.1rem .1rem .3rem rgb(0, 0,0) ;
+    text-shadow: .1rem .1rem .1rem rgb(175, 175, 175);
+    font-size: 1.1rem;
+    background-color: #f0f000;
+    border-radius: 5px;
+    border: none;
+    color: black;
+    width: 35%;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+.button-Container button:hover{
+    cursor: pointer;
+    background-color: #ffff0e;
+}
+.greyOut{
+    color: gray;
+}
+.greyOut1{
+   color: rgba(2, 2, 2, 0.5);
+   background-color: rgba(0, 0, 0, 0.5);
+}
+.address-Info-container{
+    width: 100%;
+}
+.form-group{
+    margin-bottom: 1rem;
+}
+.form-group input{
+    width: 100%;
+    padding: .5rem;
+}
+.state-city-Information{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 1rem;
+}
+.form-group-name{
+    width: 50%;
+}
+.form-group-name input{
+    padding: .5rem;
+    width: 100%;
+}
+.form-group-City{
+    width: 50%;
+}
+.form-group-City input{
+    padding: .5rem;
+    width: 100%;
+}
+.form-group-State{
+    width: 50%;
+}
+.form-group-State input{
+    padding: .5rem;
+    width: 100%;
+}
+
+
+@media screen and (max-width:26em){
+    .state-city-Information{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .oneHundred{
+        width: 100%;
+    }
+    .button-Container button{
+        width: 100%;
+    }
+}

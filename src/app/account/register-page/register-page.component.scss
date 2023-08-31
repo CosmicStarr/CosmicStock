@@ -1,0 +1,228 @@
+.reg-form-container{
+    position: relative;
+    width: 400px;
+    background: #fff;
+    margin: 15% auto;
+    padding: 1rem;
+    border-radius: 10px;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.5s;
+    animation-name: animatetop;
+    animation-duration: 0.5s
+}
+@-webkit-keyframes animatetop {
+    from {
+        top:-300px; opacity:0
+    } 
+    to {
+        top:0; opacity:1
+    }
+  }
+  
+@keyframes animatetop {
+    from {
+        top:-300px; opacity:0
+    }
+    to {
+        top:0; opacity:1
+    }
+}
+.closeMenu{
+    display: none;
+}
+.close{
+    align-self: start;
+}
+.close:hover,
+.close:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+.top-Of-Container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.title{
+    text-align: center;
+}
+.title h3{
+    font-size: 2rem;
+}
+.title p{
+    opacity: 0.5;
+}
+.boardline{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.register-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+.register-form p{
+    font-size: .8rem;
+    opacity: 0.5;
+}
+.register-form a{
+    cursor: pointer;
+    font-size: .8rem;
+    opacity: 0.5;
+}
+.register-button-container{
+    width: 100%;
+}
+.register-form button{
+    cursor: pointer;
+    background-color: #f0f000;
+    border-radius: 5px;
+    border: none;
+    color: black;
+    width: 100%;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+.register-form button:hover{
+    background-color: #ffff0e;
+}
+.form-Information{
+    gap: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.form-group{
+    width: 50%;
+}
+.form-group input{
+    padding: .5rem;
+    width: 100%;
+    border-radius: 5px;
+    border: .5px solid #00000080;
+}
+.form-group-email{
+    width: 100%;
+}
+.form-group-email input{
+    padding: .5rem;
+    width: 100%;
+    border-radius: 5px;
+    border: .5px solid #00000080;
+}
+.form-group-password{
+    width: 100%;
+}
+.form-group-password input{
+    padding: .5rem;
+    width: 100%;
+    border-radius: 5px;
+    border: .5px solid #00000080;
+}
+.form-group-confirm{
+    width: 100%;
+}
+.form-group-confirm input{
+    padding: .5rem;
+    width: 100%;
+    border-radius: 5px;
+    border: .5px solid #00000080;
+}
+.valid{
+    color: #8b0000;
+}
+.birth-Gen{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.birthday-Container{
+    width: 45%;
+}
+.birthday-Container input{
+    width: 100%;
+}
+.gender-Title-Container{
+    width: 50%;
+}
+.Gender-Container{
+    display: flex;
+    height: 1.6rem;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+}
+.yellowColor{
+    background-color: rgb(8, 7, 58);
+    color: white;
+}
+@media screen and (max-width:58em){
+    .reg-form-container{
+        margin: 55% auto;
+    }
+}
+@media screen and (max-width:57.2em){
+    .reg-form-container{
+        margin: 3% auto;
+    }
+}
+@media screen and (max-width:56em){
+    .reg-form-container{
+        margin: 3% auto;
+    }
+}
+
+@media screen and (max-width:52em){
+    .reg-form-container{
+        margin: 50% auto;
+    }
+}
+@media screen and (max-width:49em){
+    .reg-form-container{
+        margin: 43% auto;
+    }
+}
+@media screen and (max-width:47em){
+    .reg-form-container{
+        margin: auto;
+    }
+}
+@media screen and (max-width:47em){
+    .reg-form-container{
+        margin: 10% auto;
+    }
+}
+@media screen and (max-width:42em){
+    .reg-form-container{
+        margin: 1% auto;
+    }
+}
+
+@media screen and (max-width:34em){
+    .reg-form-container{
+        margin: 33% auto;
+    }
+}
+@media screen and (max-width:26em){
+    .reg-form-container{
+        margin: 64% auto;
+        width: 350px;
+    }
+}
+@media screen and (max-width:24em){
+    .reg-form-container{
+        margin: 40% auto;
+    }
+}
+@media screen and (max-width:23em){
+    .reg-form-container{
+        margin: 51% auto;
+    }
+}
+@media screen and (max-width:18em){
+
+    .reg-form-container{
+        width: 270px;
+    }
+}

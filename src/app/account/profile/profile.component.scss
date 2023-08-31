@@ -1,0 +1,125 @@
+.account-Container{
+    margin-bottom: 2rem;
+}
+.nothingToDisplay{
+    display: none;
+}
+.myAccount-Heading{
+    background-color: rgb(194, 194, 194);
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    text-align: center;
+}
+.myAccount-Heading h1{
+    font-size: 2rem;
+}
+.account-Options-Plus{
+    margin: auto;
+    max-width: 71.3rem;
+    display: flex;
+    justify-content: space-between;
+}
+.padding-Top-Bottom-border-bottom{
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid #0000001a;
+}
+.padding-Top-Bottom-border-bottom:hover{
+    background-color: rgb(167, 166, 166,0.3);
+    color: white;
+}
+.Orders{
+    border-top: 1px solid rgb(0, 0, 0,0.1);
+}
+// .orderAnchor:active{
+//     color: #ff4500;
+//     text-shadow: .1rem .1rem .2rem rgb(0, 0, 0,0.3);
+// }
+.LogOut{
+    border-bottom: 1px solid rgb(0, 0, 0,0.1);
+}
+.LogOut a:hover{
+    color: #ff4500;
+}
+.Left-side{
+    width: 22.50%;  
+}
+.Left-side .LogOut{
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+.Left-side a:hover{
+    color: white;
+    text-shadow: .1rem .1rem .2rem rgba(0, 0, 0, 0.3);
+}
+.Left-side a{
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: block;
+}
+.Right-side{
+    width: 63.90%;
+}
+.active{
+    color: #ff4500;
+    text-shadow: .1rem .1rem .2rem rgb(0, 0, 0,0.3);
+}
+//landscape phones
+
+@media screen and (max-width:74em){
+    .account-Options-Plus{
+        width: 94%;
+        gap: 2rem;
+        padding: .5rem;
+    }
+    .Left-side{
+        width: 25%;  
+    }
+    .Right-side{
+        width: 71%;
+    }
+}
+@media screen and (max-width:55em){
+
+}
+@media screen and (max-width:47em){
+    .account-Options-Plus{
+        width: 100%;
+    }
+}
+
+//the rest
+@media screen and (max-width:44em){
+    .account-Options-Plus{
+        width: 100%;
+    }
+    .account-Container{
+        width: 100%;
+    }
+    .Left-side{
+        width: 100%;
+    }
+    .account-Options-Plus{
+        display: flex;
+        flex-direction: column;
+    }
+    .Right-side{
+        width: 100%;
+    }
+}
+//mini screen on cpu
+
+//phones
+@media screen and (max-width:26em){
+    .Left-side{
+        width: 100%;
+    }
+    .Right-side{
+        width: 100%;
+    }
+}

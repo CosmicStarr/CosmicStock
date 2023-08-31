@@ -1,0 +1,73 @@
+<div class="reg-form-container">
+    <div class="top-Of-Container">
+        <div class=""></div>
+        <div class="title">
+            <h3>Sign Up</h3>
+            <p>It's quick and easy!</p>
+        </div>
+        <div class="close" (click)="getInfoById()">X</div>
+    </div>
+    <div class="boardline">
+        <hr>
+    </div>
+    <form class="register-form"[formGroup]="registerForm" (ngSubmit)="onSubmit()" autocomplete="off">
+        <div class="form-group-email">
+            <input formControlName="email" type="email" name="email" id="email"placeholder="Email">
+            <span class="valid" *ngIf="!registerForm.get('email')?.valid && registerForm.get('email')?.touched">An Email is required!</span>
+        </div>
+        <div class="form-group-password">
+            <input formControlName="password" type="password" name="password" placeholder="New Password">
+            <span class="valid" *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched">Password is required</span>
+    
+        </div>
+        <div class="form-group-confirm">
+            <input formControlName="confirmPassword" type="password" name="confirmPassword" placeholder="Confirm Password">	 
+            <span class="valid" *ngIf="registerForm.hasError('notSame')">Password do not match</span>
+           <div *ngIf="registerForm.get('password')?.touched"><span class="valid" *ngIf="registerForm.get('confirmPassword')?.errors && registerForm.get('confirmPassword')?.touched"> Confirm Password is required</span></div> 
+        </div>
+        <!-- <div class="birth-Gen">
+            <div class="birthday-Container">
+                <span>Birthday?</span>
+                <input formControlName="birthday" id="myDate" type="date"  value="2018-07-22"
+                min="1940-01-01" max="{{myDate | date:'yyyy-MM-dd'}}" placeholder="Birthday">
+            </div> 
+            <div class="gender-Title-Container">
+                <span>Gender?</span> 
+                <div class="Gender-Container">
+                    <div class="Gender"*ngFor="let item of genderArray">
+                        <label for="male"> {{item.value}} </label><input formControlName="gender" value="{{item.value}}" type="radio"> 
+                    </div> 
+                </div> 
+            </div>
+        </div> -->
+        <p>By clicking Sign Up, you agree to our <a>Terms, 
+            Privacy Policy</a>. You may receive Email Notifications from us and can opt out any time.</p>
+            
+        <!-- <ng-container *ngIf="(currentUser$|async)">
+            <div class="form-group"  >
+                <label for="inputRole">User Role (THIS IS A ROLE)</label>
+                <select id="inputRole" class="form-control" #role (change)="roleChange(role?.value)" formControlName="role">
+                    <option value="" disabled>Choose a role</option>
+                    <option *ngFor="let item of roleOptions" [ngValue]="item" >
+                    {{item}}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="inputClaim">Claim (THIS IS A Claim)</label>
+                <select id="inputClaim" class="form-control" #JobDepartment (change)="claimChange(JobDepartment?.value)" formControlName="JobDepartment">
+                    <option value="" disabled>Choose a Developer Type</option>
+                    <option *ngFor="let item of developerType" [ngValue]="item">
+                    {{item}}
+                    </option>
+                </select>
+            </div>
+        </ng-container> -->
+        <div class="register-button-container" >
+            <button type="submit">Register <i class=""></i></button>
+        </div>
+        
+    </form>    
+</div>
+
+
