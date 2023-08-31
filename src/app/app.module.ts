@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -11,7 +11,9 @@ import { AuthInterceptorProvider } from './interceptors/jwt.interceptor';
 import { ErrorInterceptorProvider } from './interceptors/error.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoadingInterceptorProvider } from './interceptors/loading.interceptor';
-import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxSpinnerModule } from 'ngx-spinner/lib/ngx-spinner.module';
+import { BrowserModule } from '@angular/platform-browser';
+
 
 
 
@@ -19,7 +21,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +33,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     BrowserAnimationsModule,
     NgxSpinnerModule
   ],
+  
   exports:[
     NgxSpinnerModule
 
